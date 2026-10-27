@@ -1,0 +1,7 @@
+# Day 8 — System Design Reflection
+
+The most difficult concept in this course was understanding concurrency: how a system can stay correct when many users act at the same time. In TicketHub, the clearest example is two customers trying to buy the same seat. Initially, it is tempting to check whether a seat is available and then update it, but those separate steps leave a gap in which both customers could succeed. I worked through the problem by tracing competing requests step by step and learning how database transactions, row-level locks, and unique constraints enforce exclusive ownership. I also considered what happens when a seat hold expires or a payment confirmation arrives late.
+
+The part of my capstone I would improve is the checkout and failure-recovery flow. I would add clearer sequence diagrams and more test cases for payment retries, expired holds, and duplicate callbacks. I have not received specific reviewer feedback yet, so this is a self-identified improvement rather than a claim about feedback received. Once feedback is available, I would prioritize the issues it identifies.
+
+Next, I want to learn more about distributed systems, load testing, message queues, and database performance. I would like to build a small TicketHub prototype using a relational database and run concurrent purchase simulations to confirm that the design prevents double-booking under realistic traffic.
